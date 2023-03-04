@@ -37,13 +37,20 @@
             }
 
 
-
+         
 
         }
 
         .MenuWomen:hover .Menu {
             display: block;
         }
+        .isCheck{
+            p{
 
+                color: var(--color-secundary);
+            }
+        }   
     }
+
+    
 }

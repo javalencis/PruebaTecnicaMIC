@@ -17,6 +17,6 @@ export const Menu = () => {
                     <li>Accesorios<span></span></li>
                 </ul>
             </nav>
-        </div>
+        </div>  
     )
 }

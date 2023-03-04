@@ -9,7 +9,7 @@ export const Navigation = () => {
         </li>
         <li><p>HOMBRE</p> </li>
         <li><p>NEW ARRIVALS</p> </li>
-        <li><p>BÁSICOS</p> </li>
+        <li className='isCheck'><p>BÁSICOS</p> </li>
         <li><p>OFERTAS</p> </li>
         <li><p>BLOG</p> </li>
       </ul>
