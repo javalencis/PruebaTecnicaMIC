@@ -1,5 +1,6 @@
 :root{
     --color-primary:#131E29;
+    --color-secundary:#EA0029;
 }
 
 *{
@@ -10,7 +11,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+
 }
 
 li{

@@ -1,32 +1,48 @@
 .Navigation {
-
-    ul {
+    height: 64px;
+    &>ul {
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-
-        li {
-            padding: 0 18px;
-            letter-spacing: 0.4rem;
-            font-size: 12px;
-            font-weight: 500;
+       
+        &>li {
+            height: 100%;
+           
             cursor: pointer;
             position: relative;
-  
 
-            &:hover::after {
-                content: "";
-                position: absolute;
-                bottom: -10px;
-                left: 0;
-                right: 0;
-                margin: 0 auto;
-                height: 7px;
-                width: 37px;
-                background-image: url(https://moviesshopco.vtexassets.com/assets/vtex/assets-builder/moviesshopco.theme3/3.0.40/decorative-dots___cc9527b9961c8f501808eb86562dbbb3.svg);
-                background-size: contain;
-                background-repeat: no-repeat
+            &>p {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 18px;
+                letter-spacing: 0.4rem;
+                font-size: 12px;
+                font-weight: 500;
+
+                &:hover::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    height: 7px;
+                    width: 37px;
+                    background-image: url(https://moviesshopco.vtexassets.com/assets/vtex/assets-builder/moviesshopco.theme3/3.0.40/decorative-dots___cc9527b9961c8f501808eb86562dbbb3.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat
+                }
             }
+
+
+
+
+        }
+
+        .MenuWomen:hover .Menu {
+            display: block;
         }
 
     }

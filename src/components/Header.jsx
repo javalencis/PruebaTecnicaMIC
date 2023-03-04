@@ -8,10 +8,13 @@ import { Search } from './Search'
 export const Header = () => {
   return (
     <header className="Header">
-        <Logo/>
-        <Navigation/>
-        <Search/>
-        <Elements/>
+      <div className='Hd-container'>
+        <Logo />
+        <Navigation />
+        <Search />
+        <Elements />
+      </div>
+
     </header>
   )
 }
