@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Header } from './components/Header'
 import { SideLeftNav } from './components/SideLeftNav'
+import { AppContext } from './context/AppContext'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { openSideLeftMenu,setOpenSideLeftMenu } = useContext(AppContext)
 
   return (
     <>
-        <Header/>
-        <SideLeftNav/>
+      <Header setOpenSideLeftMenu={setOpenSideLeftMenu}/>
+      <SideLeftNav />
     </>
   )
 }

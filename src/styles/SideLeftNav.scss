@@ -1,9 +1,25 @@
+
+
 .SideLeftNav {
-    width: 320px;
+    width: 85%;
+    max-width: 320px;
     height: 100vh;
     background-color: #ffffff;
     padding: 20px 10px;
-
+    position: fixed;
+    transition: all 0.2s ease-in-out;
+    z-index: 20;
+    &.expanded{
+        transform: translate3d(0%,0px,0px);
+        pointer-events: auto;
+     
+    }
+    &.collapsed{
+        transform: translate3d(-100%,0px,0px);
+        pointer-events: none;
+  
+    }
+   
     li {
         margin-bottom: 24px;
     }
@@ -93,4 +109,27 @@
         }
     }
 
+}
+
+.Sln-bg{
+    background-color: #03044e50;;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    transition: opacity 0.2s ease-in-out;
+    
+    &.expanded{
+        opacity: 1;
+    
+    }
+
+    &.collapsed{
+        opacity: 0;
+        z-index: -999;
+      
+    }
+    
 }

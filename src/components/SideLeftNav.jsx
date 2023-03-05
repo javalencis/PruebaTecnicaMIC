@@ -1,15 +1,22 @@
 import { LayoutLateralNav } from '../containers/LayoutLateralNav'
-import IconUser from '../assets/icons/user.svg'
-import '../styles/SideLeftNav.scss'
-export const SideLeftNav = () => {
 
-    
-    return (
-        <LayoutLateralNav>
-            <div className='SideLeftNav'>
+import '../styles/SideLeftNav.scss'
+import { useContext} from 'react'
+import { AppContext } from '../context/AppContext'
+export const SideLeftNav = () => {
+    const {openSideLeftMenu,setOpenSideLeftMenu} = useContext(AppContext);
+
+    const handleOpenSide=()=>{
+        setOpenSideLeftMenu(val => !val)
+    }
+   
+    return (    
+        <>
+          
+            <div className={openSideLeftMenu ? 'SideLeftNav expanded':'SideLeftNav collapsed'}>
                 <div className='Sln-top'>
                     <p>¡HOLA!</p>
-                    <button>
+                    <button onClick={handleOpenSide}>
                         X
                     </button>
                 </div>
@@ -31,7 +38,10 @@ export const SideLeftNav = () => {
                     </ul>
                 </div>
             </div>
-        </LayoutLateralNav>
+            <div className={openSideLeftMenu ? 'Sln-bg expanded' : 'Sln-bg collapsed'}
+            onClick={handleOpenSide}
+            ></div>
+        </>
 
     )
 }
