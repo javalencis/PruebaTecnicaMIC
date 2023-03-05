@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Header } from './components/Header'
 import { SideLeftNav } from './components/SideLeftNav'
+import { SideLeftNavWomen } from './components/SideLeftNavWomen'
 import { AppContext } from './context/AppContext'
 
 
@@ -11,6 +12,8 @@ function App() {
     <>
       <Header setOpenSideLeftMenu={setOpenSideLeftMenu}/>
       <SideLeftNav />
+      <SideLeftNavWomen/>
+
     </>
   )
 }

@@ -1,0 +1,57 @@
+.SideLeftNav {
+    .Sln-menu {
+        margin-top: 20px;
+        padding: 0;
+        .Sln-menu--button {
+            font-family: 'Roboto', sans-serif;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            &::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                background-image: url('../assets/icons//back-close.svg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                margin-right: 10px;
+            }
+        }
+
+        .Sln-menu--wm {
+
+            .menu--wm-top {
+                display: flex;
+                justify-content: flex-start;
+                align-items: baseline;
+                margin-top: 20px;
+
+                h2 {
+                    color: var(--color-secundary);
+                    font-weight: 400;
+                    letter-spacing: 0.6rem;
+                }
+
+                p {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #333;
+                    cursor: pointer;
+                }
+            }
+            nav{
+                margin-top: 32px;
+            }
+            li{
+                font-size: 14px;
+                font-weight: 500;
+                color: #333;
+                letter-spacing: 0.05em;
+            }
+        }
+
+    }
+}

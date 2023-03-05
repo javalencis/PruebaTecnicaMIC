@@ -1,4 +1,4 @@
-
+@import './media-queries';
 
 .SideLeftNav {
     width: 85%;
@@ -9,6 +9,7 @@
     position: fixed;
     transition: all 0.2s ease-in-out;
     z-index: 20;
+    display: none;
     &.expanded{
         transform: translate3d(0%,0px,0px);
         pointer-events: auto;
@@ -120,7 +121,7 @@
     right: 0;
     z-index: 10;
     transition: opacity 0.2s ease-in-out;
-    
+    display: none;
     &.expanded{
         opacity: 1;
     
@@ -132,4 +133,14 @@
       
     }
     
+}
+
+
+@include tablet{
+    .SideLeftNav{
+        display: block;
+    }
+    .Sln-bg{
+        display: block;
+    }
 }
