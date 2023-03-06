@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AppContext } from "../context/AppContext"
 import '../styles/SideCart.scss'
+import { CardProduct } from "./CardProduct"
 import { EmptyCart } from "./EmptyCart"
 export const SideCart = () => {
     const { shoppingCart, setShoppingCart, openSideCart, setOpenSideCart } = useContext(AppContext)
@@ -22,9 +23,13 @@ export const SideCart = () => {
                     shoppingCart?.length > 0 ?
                         (
                             <div className="sc-list-item-cart">
-                                {shoppingCart.map(product => (
-                                    <p>{product.reference} + {product.amount}</p>
-                                ))}
+                                <div className="list">
+                                    {shoppingCart.map((item, index) => (
+                                        <CardProduct key={index} item={item} />
+                                    ))}
+                                </div>
+
+
                             </div>
                         ) :
                         (

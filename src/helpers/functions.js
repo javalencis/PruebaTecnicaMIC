@@ -12,7 +12,7 @@ export const findItem = (item, cart) => {
     } else {
         itemAux = item
     }
-    console.log(itemAux)
+
 
     return { itemAux, index }
 }
