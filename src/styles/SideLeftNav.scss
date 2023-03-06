@@ -141,6 +141,22 @@
 @include tablet{
     .SideLeftNav{
         display: block;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 3px;
+            background-color: #efefef;
+        }
+
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(51, 51, 51, .6);
+            border-radius: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
     }
     .Sln-bg{
         display: block;

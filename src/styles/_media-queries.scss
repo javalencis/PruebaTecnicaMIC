@@ -8,3 +8,9 @@
         @content;
     }
 }
+
+@mixin heightTabletMobile{
+    @media screen and (min-heigth: 500px) {
+        @content;
+    }
+}

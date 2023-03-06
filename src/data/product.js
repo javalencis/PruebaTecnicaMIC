@@ -5,7 +5,7 @@ const product = {
     price: 259990,
     discountRate:10,
     sizes: ["S", "M", "L", "XL"],
-    amount: 16,
+    amount: 14,
     sizeguide: ["https://moviesshopco.vteximg.com.br/arquivos/guia-de-tallas.jpg",
         'https://moviesshopco.vteximg.com.br/arquivos/Desktop_Guiatallas_HOMBRE.jpg',
         'https://moviesshopco.vteximg.com.br/arquivos/Mobile_Guiatallas_HOMBRE.jpg'],
