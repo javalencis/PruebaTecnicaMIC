@@ -4,7 +4,7 @@ import '../styles/SideCart.scss'
 import { CardProduct } from "./CardProduct"
 import { EmptyCart } from "./EmptyCart"
 export const SideCart = () => {
-    const { shoppingCart, setShoppingCart, openSideCart, setOpenSideCart } = useContext(AppContext)
+    const { shoppingCart, openSideCart, setOpenSideCart } = useContext(AppContext)
 
     const handleOpenSideCart = () => {
         setOpenSideCart(e => !e)
@@ -29,7 +29,13 @@ export const SideCart = () => {
                                         <CardProduct key={index} id={index} item={item} />
                                     ))}
                                 </div>
-
+                                <div className="details">
+                                    <div>
+                                        <p>SUBTOTAL</p>
+                                        <p></p>
+                                    </div>
+                                    <div></div>
+                                </div>           
 
                             </div>
                         ) :
