@@ -10,9 +10,15 @@ export const CardProduct = ({ id, item }) => {
         setSelectedAmount(item.amount)
     }, [item.amount])
 
+    useEffect(()=>{
+        const newCart =[...shoppingCart]
+        newCart[id].amount=selectedAmount
+        setShoppingCart(newCart)
+    },[selectedAmount])
 
     const subAmount = () => {
         setSelectedAmount(c => c > 1 ? c - 1 : 1)
+
     }
     const addAmount = () => {
         setSelectedAmount(c => c < item.product.amount ? c + 1 : c)
