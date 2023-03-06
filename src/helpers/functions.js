@@ -31,7 +31,30 @@ export const addItemCart = (cart, newItem) => {
 
 }
 
-export const priceWithDiscount = (price,discount)=>{
-    return price*(100-discount)/100
+export const priceWithDiscount = (price, discount) => {
+    return price * (100 - discount) / 100
 }
 
+
+
+export const getSubtotalCart = (cart) => {
+    let sum = 0;
+    for (let i = 0; i < cart.length; i++) {
+        const price = cart[i].product.price
+        const amount = cart[i].amount
+        sum = sum + price * amount
+    }
+
+    return sum
+}
+
+export const getTotalCart = (cart) => {
+    let sum = 0;
+    for (let i = 0; i < cart.length; i++) {
+        const priceWD = priceWithDiscount(cart[i].product.price,cart[i].product.discountRate) 
+        const amount = cart[i].amount
+        sum = sum + priceWD * amount
+    }
+
+    return sum
+}
