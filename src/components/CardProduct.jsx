@@ -1,24 +1,25 @@
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
+import { priceWithDiscount } from '../helpers/functions'
 import '../styles/CardProduct.scss'
-export const CardProduct = ({id, item }) => {
-    const [selectedAmount,setSelectedAmount] = useState(item.amount)
-    const { shoppingCart,setShoppingCart} = useContext(AppContext)
+export const CardProduct = ({ id, item }) => {
+    const [selectedAmount, setSelectedAmount] = useState(item.amount)
+    const { shoppingCart, setShoppingCart } = useContext(AppContext)
 
     useEffect(() => {
         setSelectedAmount(item.amount)
     }, [item.amount])
-    
 
-    const subAmount = () =>{
+
+    const subAmount = () => {
         setSelectedAmount(c => c > 1 ? c - 1 : 1)
     }
-    const addAmount = () =>{
+    const addAmount = () => {
         setSelectedAmount(c => c < item.product.amount ? c + 1 : c)
     }
-    const handleDeleteItem = () =>{
+    const handleDeleteItem = () => {
         const newCart = [...shoppingCart]
-        newCart.splice(id,1)
+        newCart.splice(id, 1)
         setShoppingCart(newCart)
     }
     return (
@@ -42,14 +43,24 @@ export const CardProduct = ({id, item }) => {
                         <button className='bt-input--sub' onClick={subAmount}>
                             -
                         </button>
-                        <input type="text" value={selectedAmount}/>
+                        <input type="text" value={selectedAmount} />
                         <button className='bt-input--add' onClick={addAmount}>
                             +
                         </button>
                     </div>
                     <div className='bt-price'>
+                        {
+                            item.product.discountRate > 0 ?
+                                (
+                                    <>
+                                        <p className='bt-price--before'>{'$' + item.product.price}</p>
+                                        <p className='bt-price--now'>{'$' + priceWithDiscount(item.product.price, item.product.discountRate)}</p>
+                                    </>
+                                )
+                                :
+                                (<p className='bt-price--now'>{'$' + item.product.price}</p> )
+                        }
 
-                        <p>{'$' + item.product.price}</p>
                     </div>
                 </div>
             </div>
