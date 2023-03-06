@@ -14,8 +14,8 @@ export const Product = () => {
         </div>
         <ProductDetails product={product} setIsOpenModal={setIsOpenModal}/>
         {isOpenModal&&(
-          <LayoutModal>
-            <ModalGuideSizes image={product.sizeguide}/>
+          <LayoutModal openModal={setIsOpenModal}>
+            <ModalGuideSizes image={product.sizeguide} setIsOpenModal={setIsOpenModal} />
           </LayoutModal>
         )}
     </section>

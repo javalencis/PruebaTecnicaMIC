@@ -1,9 +1,14 @@
 import '../styles/ModalGuideSizes.scss'
-export const ModalGuideSizes = ({image}) => {
-  return (
-    <div className="ModalGuideSizes">
-        <button>X</button>
-        <img src={image} alt="" />
-    </div>
-  )
+export const ModalGuideSizes = ({ image,setIsOpenModal }) => {
+    const handleCloseModal = () => {
+        setIsOpenModal(e=>!e)
+    }
+    return (
+        <div className="ModalGuideSizes">
+            <button onClick={handleCloseModal}>X</button>
+            <div>
+                <img src={image} alt="" />
+            </div>
+        </div>
+    )
 }
