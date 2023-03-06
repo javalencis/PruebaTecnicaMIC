@@ -1,3 +1,4 @@
+@import './media-queries';
 .ModalGuideSizes {
     width: 80%;
     max-width: 780px;
@@ -35,5 +36,12 @@
         top: 0;
         right: 0;
 
+    }
+}
+
+@include tablet{
+    .ModalGuideSizes {
+        width: 90%;
+        height: 80%;
     }
 }

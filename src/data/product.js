@@ -1,12 +1,14 @@
 const product = {
     id: "236732-130908",
-    title : "CHAQUETA GÉNERO NEUTRO, CAQUI CON CIERRE DE MANDALORIAN",
-    subtitle:"STAR WARS",
-    price:259990,
-    sizes:["S","M","L","XL"],
-    amount:16,
-    sizeguide:"https://moviesshopco.vteximg.com.br/arquivos/guia-de-tallas.jpg",
-    images:[
+    title: "CHAQUETA GÉNERO NEUTRO, CAQUI CON CIERRE DE MANDALORIAN",
+    subtitle: "STAR WARS",
+    price: 259990,
+    sizes: ["S", "M", "L", "XL"],
+    amount: 16,
+    sizeguide: ["https://moviesshopco.vteximg.com.br/arquivos/guia-de-tallas.jpg",
+        'https://moviesshopco.vteximg.com.br/arquivos/Desktop_Guiatallas_HOMBRE.jpg',
+        'https://moviesshopco.vteximg.com.br/arquivos/Mobile_Guiatallas_HOMBRE.jpg'],
+    images: [
         'https://moviesshopco.vtexassets.com/arquivos/ids/173068-1600-1600?v=638091310430670000&width=1600&height=1600&aspect=true',
         'https://moviesshopco.vtexassets.com/arquivos/ids/173069-1600-1600?v=638091311513030000&width=1600&height=1600&aspect=true',
         'https://moviesshopco.vtexassets.com/arquivos/ids/173070-1600-1600?v=638091311685100000&width=1600&height=1600&aspect=true',
