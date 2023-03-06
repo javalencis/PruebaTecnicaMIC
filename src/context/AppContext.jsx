@@ -6,7 +6,8 @@ export const AppContext = createContext();
 export const AppProvider = ({children}) => {
     const [openSideLeftMenu, setOpenSideLeftMenu] = useState(false)
     const [openSideLeftMenuWm, setOpenSideLeftMenuWm] = useState(false)
-
+    const [shoppingCart, setShoppingCart] =  useState([])
+    const [openSideCart, setOpenSideCart] = useState(false)
 
   return (
     <AppContext.Provider
@@ -14,7 +15,11 @@ export const AppProvider = ({children}) => {
             openSideLeftMenu,
             setOpenSideLeftMenu,
             openSideLeftMenuWm,
-            setOpenSideLeftMenuWm
+            setOpenSideLeftMenuWm,
+            shoppingCart,
+            setShoppingCart,
+            openSideCart, 
+            setOpenSideCart
         }}
     >
         {children}

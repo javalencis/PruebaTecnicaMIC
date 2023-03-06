@@ -1,23 +1,46 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AppContext } from "../context/AppContext"
 import '../styles/ProductDetails.scss'
-export const ProductDetails = ({ product ,setIsOpenModal}) => {
-    const [isSelectSize,setIsSelectSize] = useState(null)
-    const [selectedAmount,setSelectedAmount] = useState(1)
-   
-    const handleClickSize = (e) =>{
+import {findItem,addItemCart} from '../helpers/functions'
+
+
+export const ProductDetails = ({ product, setIsOpenModal }) => {
+    const { setShoppingCart } = useContext(AppContext)
+    const [isSelectSize, setIsSelectSize] = useState(null)
+    const [selectedAmount, setSelectedAmount] = useState(1)
+    const [isWarning, setIsWarning] = useState(false)
+
+    const handleClickSize = (e) => {
         setIsSelectSize(parseInt(e.target.id))
+        setIsWarning(false)
     }
 
-    const subAmount = ()=>{
-        setSelectedAmount(c => c>1?c-1:1)
+    const subAmount = () => {
+        setSelectedAmount(c => c > 1 ? c - 1 : 1)
     }
 
-    const addAmount = () =>{
-        setSelectedAmount(c => c<product.amount ? c+1:c)
+    const addAmount = () => {
+        setSelectedAmount(c => c < product.amount ? c + 1 : c)
     }
 
-    const handleOpenModal = ()=>{
-        setIsOpenModal(e=>!e)
+    const handleOpenModal = () => {
+        setIsOpenModal(e => !e)
+    }
+    const handleAddCart = () => {
+        if (isSelectSize+1) {
+            const newItem = {
+                reference: product.id + '-' + product.sizes[isSelectSize],
+                amount: selectedAmount,
+                product
+            }
+
+            setShoppingCart(cart => addItemCart(cart,newItem))
+
+
+        } else {
+            setIsWarning(true)
+        }
+
     }
 
     return (
@@ -27,19 +50,19 @@ export const ProductDetails = ({ product ,setIsOpenModal}) => {
             </h1>
             <div className='pd-subtitle-ref'>
                 <p>{product.subtitle}</p>
-                <p>Ref. {product.id}-{isSelectSize ? product.sizes[isSelectSize]:"L"}</p>
+                <p>Ref. {product.id}-{isSelectSize ? product.sizes[isSelectSize] : "L"}</p>
             </div>
             <p className='pd-price'>${product.price}</p>
             <div className='pd-sizes-guide'>
                 <ul>
                     {product.sizes.map((size, index) => (
-                        <li 
-                            key={index} 
+                        <li
+                            key={index}
                             id={index}
                             onClick={handleClickSize}
-                            className={index === isSelectSize ? 'active':""}
-                            >{size}</li>
-                        ))
+                            className={index === isSelectSize ? 'active' : ""}
+                        >{size}</li>
+                    ))
                     }
                 </ul>
                 <button onClick={handleOpenModal}>
@@ -49,14 +72,20 @@ export const ProductDetails = ({ product ,setIsOpenModal}) => {
             </div>
 
             <div className='pg-amount-add'>
+
+
                 <div className='amount'>
                     <button onClick={subAmount}>-</button>
-                    <input type="number" value={selectedAmount}/>
+                    <input type="number" value={selectedAmount} />
                     <button onClick={addAmount}>+</button>
                 </div>
-                <button className='add-cart'>
+                <button className='add-cart' onClick={handleAddCart}>
                     AGREGAR A MI BOLSA
                 </button>
+                {
+                    isWarning && (<p className={isSelectSize ? 'text-warning-size out' : 'text-warning-size out show'}>Por favor selecciona una talla</p>)
+                }
+
             </div>
         </div>
     )
