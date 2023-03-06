@@ -126,13 +126,13 @@
     display: none;
     &.expanded{
         opacity: 1;
-    
+        pointer-events: all;
     }
 
     &.collapsed{
         opacity: 0;
         z-index: -999;
-      
+        pointer-events: none;
     }
     
 }

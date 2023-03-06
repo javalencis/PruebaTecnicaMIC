@@ -6,7 +6,7 @@ import { priceWithDiscount, addItemCart } from '../helpers/functions'
 
 export const ProductDetails = ({ product, setIsOpenModal }) => {
     const { setShoppingCart } = useContext(AppContext)
-    const [isSelectSize, setIsSelectSize] = useState(null)
+    const [isSelectSize, setIsSelectSize] = useState(-1)
     const [selectedAmount, setSelectedAmount] = useState(1)
     const [isWarning, setIsWarning] = useState(false)
 
@@ -27,7 +27,7 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
         setIsOpenModal(e => !e)
     }
     const handleAddCart = () => {
-        if (isSelectSize + 1) {
+        if (isSelectSize >=0) {
             const newItem = {
                 reference: product.id + '-' + product.sizes[isSelectSize],
                 amount: selectedAmount,
@@ -50,7 +50,7 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
             </h1>
             <div className='pd-subtitle-ref'>
                 <p>{product.subtitle}</p>
-                <p>Ref. {product.id}-{isSelectSize ? product.sizes[isSelectSize] : "L"}</p>
+                <p>Ref. {product.id}-{isSelectSize>=0 ? product.sizes[isSelectSize] : "L"}</p>
             </div>
             <div className='pd-price'>
 
@@ -95,7 +95,7 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
                     AGREGAR A MI BOLSA
                 </button>
                 {
-                    isWarning && (<p className={isSelectSize ? 'text-warning-size out' : 'text-warning-size out show'}>Por favor selecciona una talla</p>)
+                    isWarning && (<p className={isSelectSize >=0 ? 'text-warning-size out' : 'text-warning-size show'}>Por favor selecciona una talla</p>)
                 }
 
             </div>
