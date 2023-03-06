@@ -3,6 +3,7 @@ const product = {
     title: "CHAQUETA GÉNERO NEUTRO, CAQUI CON CIERRE DE MANDALORIAN",
     subtitle: "STAR WARS",
     price: 259990,
+    discountRate:10,
     sizes: ["S", "M", "L", "XL"],
     amount: 16,
     sizeguide: ["https://moviesshopco.vteximg.com.br/arquivos/guia-de-tallas.jpg",

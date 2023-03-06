@@ -29,6 +29,18 @@
         font-size: 18px;
         padding: 0 16px;
         margin-bottom: 32px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        p{
+            margin-right: 20px;
+        }
+
+        .pd-price--before{
+            font-size: 14px;
+            color:#828282;
+            text-decoration: line-through;
+        }
     }
 
     .pd-sizes-guide {

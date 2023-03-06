@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { AppContext } from "../context/AppContext"
 import '../styles/ProductDetails.scss'
-import {findItem,addItemCart} from '../helpers/functions'
+import { priceWithDiscount, addItemCart } from '../helpers/functions'
 
 
 export const ProductDetails = ({ product, setIsOpenModal }) => {
@@ -27,14 +27,14 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
         setIsOpenModal(e => !e)
     }
     const handleAddCart = () => {
-        if (isSelectSize+1) {
+        if (isSelectSize + 1) {
             const newItem = {
                 reference: product.id + '-' + product.sizes[isSelectSize],
                 amount: selectedAmount,
                 product
             }
 
-            setShoppingCart(cart => addItemCart(cart,newItem))
+            setShoppingCart(cart => addItemCart(cart, newItem))
 
 
         } else {
@@ -52,7 +52,19 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
                 <p>{product.subtitle}</p>
                 <p>Ref. {product.id}-{isSelectSize ? product.sizes[isSelectSize] : "L"}</p>
             </div>
-            <p className='pd-price'>${product.price}</p>
+            <div className='pd-price'>
+
+                {product.discountRate > 0 ?
+                    (
+                        <>
+                            <p className='pd-price--before'>${product.price}</p>
+                            <p className='pd-price--now'>
+                                ${priceWithDiscount(product.price, product.discountRate)}
+                            </p>
+                        </>
+                    ):(<p className='pd-price--now'>${product.price}</p>)}
+            </div>
+
             <div className='pd-sizes-guide'>
                 <ul>
                     {product.sizes.map((size, index) => (
