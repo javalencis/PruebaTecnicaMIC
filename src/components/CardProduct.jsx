@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../context/AppContext'
 import '../styles/CardProduct.scss'
-export const CardProduct = ({ item }) => {
+export const CardProduct = ({id, item }) => {
     const [selectedAmount,setSelectedAmount] = useState(item.amount)
+    const { shoppingCart,setShoppingCart} = useContext(AppContext)
+
     useEffect(() => {
         setSelectedAmount(item.amount)
     }, [item.amount])
@@ -13,7 +16,11 @@ export const CardProduct = ({ item }) => {
     const addAmount = () =>{
         setSelectedAmount(c => c < item.product.amount ? c + 1 : c)
     }
-
+    const handleDeleteItem = () =>{
+        const newCart = [...shoppingCart]
+        newCart.splice(id,1)
+        setShoppingCart(newCart)
+    }
     return (
         <div className="CardProduct">
             <div className='cp-img'>
@@ -26,7 +33,7 @@ export const CardProduct = ({ item }) => {
                         <p className='top-title'>{item.product.title}</p>
                     </div>
 
-                    <button>
+                    <button onClick={handleDeleteItem}>
                     </button>
 
                 </div>

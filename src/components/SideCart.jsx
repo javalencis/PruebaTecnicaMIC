@@ -9,6 +9,7 @@ export const SideCart = () => {
     const handleOpenSideCart = () => {
         setOpenSideCart(e => !e)
     }
+    
 
     return (
         <div className={openSideCart ? "SideCart expanded" : "SideCart collapsed"}>
@@ -25,7 +26,7 @@ export const SideCart = () => {
                             <div className="sc-list-item-cart">
                                 <div className="list">
                                     {shoppingCart.map((item, index) => (
-                                        <CardProduct key={index} item={item} />
+                                        <CardProduct key={index} id={index} item={item} />
                                     ))}
                                 </div>
 
