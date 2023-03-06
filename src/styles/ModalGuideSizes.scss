@@ -1,0 +1,16 @@
+.ModalGuideSizes{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        position: absolute;
+        top:0;
+    }
+    .mgs-image{
+        width: 100%;
+        
+    }
+}

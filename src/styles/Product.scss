@@ -1,0 +1,19 @@
+.Product{
+    width: 100%;
+    max-width: 96rem;
+    margin-top: 64px;
+    height: 500px;
+    padding: 40px 20px 0 20px;
+
+    display: flex;
+    justify-content: center;
+    .ProductGallery{
+        width: 60%;
+        background-color: magenta;
+    }
+    .ProductDetails{
+        width: 40%;
+
+
+    }
+}
