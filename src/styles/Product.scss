@@ -1,8 +1,9 @@
+@import './media-queries';
 .Product{
     width: 100%;
     max-width: 96rem;
     margin-top: 64px;
-    height: 500px;
+    height: auto;
     padding: 40px 20px 0 20px;
 
     display: flex;
@@ -13,7 +14,19 @@
     }
     .ProductDetails{
         width: 40%;
-
-
     }
+    
+}
+@include mobile{
+    .Product{
+        flex-direction: column;
+        padding: 40px 0;
+        .ProductGallery{
+            width: 100%;
+        }
+        .ProductDetails{
+            width: 100%;
+        }
+    }
+    
 }

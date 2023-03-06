@@ -1,5 +1,8 @@
+@import './media-queries';
 .ProductDetails {
     padding: 0 50px;
+    display: flex;
+    flex-direction: column;
     .pd-title{
         font-size: 20px;
         line-height: 22px;
@@ -12,6 +15,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        flex-wrap: wrap;
         gap: 20px;
         margin-bottom: 30px;
        
@@ -36,6 +40,7 @@
         ul {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
 
             li {
                 width: 24px;
@@ -79,7 +84,7 @@
             border-bottom: 1px solid #828282;
             margin-right: 10px;
             input{
-                width: 53px;
+                width: 40px;
                 text-align: center;
                 font-family: 'roboto',sans-serif;
                 font-size: 16px;
@@ -116,6 +121,32 @@
             background-color: var(--color-primary);
 
             cursor: pointer;
+        }
+    }
+
+    
+}
+@include tablet{
+    .ProductDetails{
+        padding: 0 20px;
+        text-align: left;
+        .pg-amount-add{
+           
+            max-width: 320px;
+        }
+    }
+}
+
+@include mobile{
+    .ProductDetails{
+        .pd-sizes-guide {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .pg-amount-add{
+            
+            justify-content: flex-start;
         }
     }
 }
