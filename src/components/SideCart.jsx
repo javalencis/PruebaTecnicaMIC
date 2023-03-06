@@ -72,7 +72,7 @@ export const SideCart = () => {
                 </div>
 
             </div>
-            <div className={openSideCart ? 'Sln-bg expanded' : 'Sln-bg collapsed'}
+            <div className={openSideCart ? 'Sc-bg expanded' : 'Sc-bg collapsed'}
             onClick={handleOpenSideCart}
             ></div>
         </>
