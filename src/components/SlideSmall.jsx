@@ -3,21 +3,28 @@ import '../styles/SlideSmall.scss'
 export const SlideSmall = ({ images }) => {
     const myImg = useRef(null)
     const [posY, setPosY] = useState(0)
-    const [positions,setPositions] = useState(0)
+    const [posX, setPosX] = useState(0)
+    const [positions, setPositions] = useState(0)
 
     const handleTopBottom = (e) => {
-        let imgH =  myImg.current.clientHeight + 10
-        console.log(positions)
+        let imgH = myImg.current.clientHeight + 10
+        const screenWidth = window.innerWidth
         if (e.target.id === 'top') {
-            setPosY(-(positions-2)*imgH)
-            setPositions(x=> x>0?x-2:2)
-          
+            
+                setPosX(-(positions - 2) * imgH) 
+                setPosY(-(positions - 2) * imgH)
+                setPositions(x => x > 0 ? x - 2 : 2)
+         
+
         } else {
-            setPosY(-(positions+2)*imgH)
-            setPositions(x=> x < images.length ? x+2:x)
            
+                setPosX(-(positions + 2) * imgH)
+                setPosY(-(positions + 2) * imgH)
+                setPositions(x => x < images.length ? x + 2 : x)
+         
+
         }
-        
+
 
     }
     return (
@@ -26,10 +33,10 @@ export const SlideSmall = ({ images }) => {
                 id='top'
                 onClick={handleTopBottom}
                 style={{
-                    display:positions === 0?"none":"block"
+                    display: positions === 0 ? "none" : "block"
                 }}
-                >
-                
+            >
+
                 <span>
 
                     {'<'}
@@ -38,7 +45,7 @@ export const SlideSmall = ({ images }) => {
             <div
                 className='SlideSmallContainer'
                 style={{
-                    transform: 'translateY(' + posY + 'px)'
+                    transform: window.innerWidth <= 1300 ?'translateX(' + posX+ 'px)':'translateY(' + posY + 'px)'
                 }}>
                 {
                     images.map((img, index) => (
@@ -50,9 +57,9 @@ export const SlideSmall = ({ images }) => {
                 id="bottom"
                 onClick={handleTopBottom}
                 style={{
-                    display:positions >= images.length-2?"none":"block"
+                    display: positions >= images.length - 2 ? "none" : "block"
                 }}
-                >
+            >
                 <span>
 
                     {'>'}
