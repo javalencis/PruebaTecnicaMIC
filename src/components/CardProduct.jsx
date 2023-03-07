@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
-import { priceWithDiscount } from '../helpers/functions'
+import { priceWithDiscount,currencyFormat } from '../helpers/functions'
 import '../styles/CardProduct.scss'
 export const CardProduct = ({ id, item }) => {
     const [selectedAmount, setSelectedAmount] = useState(item.amount)
@@ -59,8 +59,8 @@ export const CardProduct = ({ id, item }) => {
                             item.product.discountRate > 0 ?
                                 (
                                     <>
-                                        <p className='bt-price--before'>{'$' + item.product.price}</p>
-                                        <p className='bt-price--now'>{'$' + priceWithDiscount(item.product.price, item.product.discountRate)}</p>
+                                        <p className='bt-price--before'>{currencyFormat(item.product.price)}</p>
+                                        <p className='bt-price--now'>{currencyFormat(priceWithDiscount(item.product.price, item.product.discountRate))}</p>
                                     </>
                                 )
                                 :

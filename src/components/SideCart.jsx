@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext"
 import '../styles/SideCart.scss'
 import { CardProduct } from "./CardProduct"
 import { EmptyCart } from "./EmptyCart"
-import { getSubtotalCart, getTotalCart } from '../helpers/functions'
+import { getSubtotalCart, getTotalCart,currencyFormat } from '../helpers/functions'
 export const SideCart = () => {
     const { shoppingCart, openSideCart, setOpenSideCart } = useContext(AppContext)
 
@@ -36,7 +36,7 @@ export const SideCart = () => {
 
                                             <div>
                                                 <p>SUBTOTAL</p>
-                                                <p>$ {getSubtotalCart(shoppingCart)}</p>
+                                                <p>{getSubtotalCart(shoppingCart)}</p>
                                             </div>
                                             <div>
                                                 <p>COSTOS DE ENVÍO</p>
@@ -44,7 +44,7 @@ export const SideCart = () => {
                                             </div>
                                             <div className="total">
                                                 <p>TOTAL</p>
-                                                <p>$ {getTotalCart(shoppingCart)}</p>
+                                                <p>{getTotalCart(shoppingCart)}</p>
                                             </div>
                                         </div>
                                         <div className="details-center">
@@ -52,7 +52,7 @@ export const SideCart = () => {
                                             <div className="bar"></div>
                                             <div className="prices">
                                                 <p>$ 0</p>
-                                                <p>$ 150000</p>
+                                                <p>$ 150.000</p>
                                             </div>
                                         </div>
                                         <div className="details-bottom">

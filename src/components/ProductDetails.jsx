@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { AppContext } from "../context/AppContext"
 import '../styles/ProductDetails.scss'
-import { priceWithDiscount, addItemCart } from '../helpers/functions'
+import { priceWithDiscount, addItemCart,currencyFormat } from '../helpers/functions'
 
 
 export const ProductDetails = ({ product, setIsOpenModal }) => {
@@ -10,6 +10,7 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
     const [selectedAmount, setSelectedAmount] = useState(1)
     const [isWarning, setIsWarning] = useState(false)
 
+  
     const handleClickSize = (e) => {
         setIsSelectSize(parseInt(e.target.id))
         setIsWarning(false)
@@ -57,9 +58,9 @@ export const ProductDetails = ({ product, setIsOpenModal }) => {
                 {product.discountRate > 0 ?
                     (
                         <>
-                            <p className='pd-price--before'>${product.price}</p>
+                            <p className='pd-price--before'>{currencyFormat(product.price)}</p>
                             <p className='pd-price--now'>
-                                ${priceWithDiscount(product.price, product.discountRate)}
+                                {currencyFormat(priceWithDiscount(product.price, product.discountRate))}
                             </p>
                         </>
                     ):(<p className='pd-price--now'>${product.price}</p>)}

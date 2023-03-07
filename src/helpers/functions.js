@@ -45,7 +45,7 @@ export const getSubtotalCart = (cart) => {
         sum = sum + price * amount
     }
 
-    return sum
+    return currencyFormat(sum)
 }
 
 export const getTotalCart = (cart) => {
@@ -56,5 +56,10 @@ export const getTotalCart = (cart) => {
         sum = sum + priceWD * amount
     }
 
-    return sum
+    return currencyFormat(sum)
+}
+
+export const currencyFormat = (number) =>{
+    const newNumber = number.toLocaleString('es-CO',{ style: 'currency', currency: 'COP', minimumFractionDigits: 0 })
+    return newNumber
 }
