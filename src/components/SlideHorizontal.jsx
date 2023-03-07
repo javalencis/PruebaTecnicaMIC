@@ -1,14 +1,98 @@
+import { useRef,useState } from 'react'
 import '../styles/SlideHorizontal.scss'
 export const SlideHorizontal = ({ images }) => {
+    const mySlide = useRef(null)
+    const myImg = useRef(null)
+
+    const [isDragStart, setIsDragStart] = useState(false)
+    const [prevPosX, setPrevPosX] = useState(null)
+    const [posClick, setPosClick] = useState(null)
+    const [timeT, setTimeT] = useState(0)
+    const [posX, setPosX] = useState(0)
+    const [imgCurrent, setImgCurrent] = useState(0)
+
+    const mouseMove = (e)=>{
+        if(!isDragStart) return
+        let posDiff
+        if (e.clientX) {
+            posDiff = e.clientX - posClick
+        } else {
+            posDiff = e.touches[0].pageX - posClick
+        }
+        setPosX(prevPosX + posDiff)
+ 
+    }
+
+    const mouseDown = (e) => {
+        setIsDragStart(true)
+        setPosClick(e.clientX)
+        setPrevPosX(posX)
+        setTimeT(0)
+
+    }
+
+    const mouseUp = (e) => {
+        setIsDragStart(false)
+        let posDiff
+        if (e.clientX) {
+            posDiff = e.clientX - posClick
+        } else {
+
+            posDiff = e.changedTouches[0].pageX - posClick
+        }
+        setPosX(prevPosX + posDiff)
+        const imgWidth = myImg.current.clientWidth
+        setTimeT(0.3)
+
+   
+        if (posDiff < 0) {
+            if (!(imgCurrent === (images.length-1))) {
+
+                setPosX(-(imgCurrent+1) * imgWidth)
+                setImgCurrent(i => i + 1)
+            } else {
+                setPosX(-imgWidth * (images.length - 1))
+
+            }
+        } else if (posDiff > 0) {
+            if (!(imgCurrent === 0)) {
+
+                setPosX(-(imgCurrent - 1) * (imgWidth))
+                setImgCurrent(i => i - 1)
+            } else {
+                setPosX(0)
+            }
+
+        }
+    }
 
     return (
         <div className='SlideHorizontal'>
-            <div className="SlideContainer">
+            <div 
+                className="SlideContainer"
+                ref={mySlide}
+                onTouchMove={mouseMove}
+                onMouseMove={mouseMove}
+                onPointerDown={mouseDown}
+                onMouseUp={mouseUp}
+                onTouchEnd={mouseUp}
+               
+                >
                 <button>{'<'}</button>
-                <div className="ImageContainer">
+                <div 
+                    className="ImageContainer"
+                    style={{
+                        transform:'translate3d(' + posX + 'px,0px,0px)',
+                        transition: 'all ' + timeT + 's ease'
+                    }}    
+                    >
                     {
                         images.map((img, index) => (
-                            <img key={index} src={img} />
+                            index ===0 ?
+                            <img ref={myImg} key={index} src={img} draggable='false'/>
+                            :
+                            <img key={index} src={img} draggable='false'/>
+
                         ))
                     }
                 </div>

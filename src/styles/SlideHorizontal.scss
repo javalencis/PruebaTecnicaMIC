@@ -6,17 +6,18 @@
 
     .SlideContainer {
         position: relative;
-
+       
         .ImageContainer {
             display: flex;
             height: auto;
-            cursor: grab;
-
+            font-size: 0;
+            
+            z-index: 1;
             img {
                 width: 100%;
                 max-height: 500px;
-                object-fit: cover;
-                pointer-events: none;
+                object-fit: contain;
+                cursor: pointer;
             }
         }
 
@@ -32,6 +33,7 @@
             font-weight: 700;
             transform: translateY(-50%);
             border: none;
+            z-index: 2;
         }
 
         button:first-child {
