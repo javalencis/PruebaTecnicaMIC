@@ -66,6 +66,18 @@ export const SlideHorizontal = ({ images }) => {
         }
     }
 
+    const handleBackNextImg = (e) => {
+        const imgWidth = myImg.current.clientWidth
+        if(e.target.id === "left"){
+            setPosX(-(imgCurrent - 1) * (imgWidth))
+            setImgCurrent(x=>x>0? x-1 : 1)
+        }else{
+           
+            setPosX(-(imgCurrent+1) * imgWidth)
+            setImgCurrent(x=>x< images.length -1 ? x+1 : x)
+        }
+    }
+
     return (
         <div className='SlideHorizontal'>
             <div 
@@ -78,7 +90,13 @@ export const SlideHorizontal = ({ images }) => {
                 onTouchEnd={mouseUp}
                
                 >
-                <button>{'<'}</button>
+                <button
+                    id='left'
+                    onClick={handleBackNextImg} 
+                    style={{
+                        display: imgCurrent > 0 ? "block" : "none"
+                    }}
+                    >{'<'}</button>
                 <div 
                     className="ImageContainer"
                     style={{
@@ -96,7 +114,13 @@ export const SlideHorizontal = ({ images }) => {
                         ))
                     }
                 </div>
-                <button>{'>'}</button>
+                <button 
+                    id='right'
+                    onClick={handleBackNextImg} 
+                    style={{
+                        display: imgCurrent === images.length-1 ? "none" : "block"
+                    }}
+                >{'>'}</button>
             </div>
         </div>
     )
