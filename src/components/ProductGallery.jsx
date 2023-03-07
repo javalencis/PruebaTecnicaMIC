@@ -1,12 +1,11 @@
 import { SlideHorizontal } from "./SlideHorizontal"
 import '../styles/ProductGallery.scss'
-export const ProductGallery = ({images}) => {
-  return (
-    <div className="ProductGallery">
-        <div className="SlideSmall">
-
+import { SlideSmall } from "./SlideSmall"
+export const ProductGallery = ({ images }) => {
+    return (
+        <div className="ProductGallery">
+            <SlideSmall images={images} />
+            <SlideHorizontal images={images} />
         </div>
-       <SlideHorizontal images={images}/>
-    </div>
-  )
+    )
 }

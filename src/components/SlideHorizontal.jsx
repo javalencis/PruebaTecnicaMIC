@@ -1,7 +1,7 @@
 import { useRef,useState } from 'react'
 import '../styles/SlideHorizontal.scss'
 export const SlideHorizontal = ({ images }) => {
-    const mySlide = useRef(null)
+
     const myImg = useRef(null)
 
     const [isDragStart, setIsDragStart] = useState(false)
@@ -82,7 +82,7 @@ export const SlideHorizontal = ({ images }) => {
         <div className='SlideHorizontal'>
             <div 
                 className="SlideContainer"
-                ref={mySlide}
+         
                 onTouchMove={mouseMove}
                 onMouseMove={mouseMove}
                 onPointerDown={mouseDown}
