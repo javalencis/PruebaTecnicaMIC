@@ -6,17 +6,20 @@ import { useState } from "react"
 import { ModalGuideSizes } from "./ModalGuideSizes"
 import { ProductGallery } from "./ProductGallery"
 export const Product = () => {
-  const [isOpenModal,setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   return (
     <section className="Product">
-        <ProductGallery images={product.images}/>
-        <ProductDetails product={product} setIsOpenModal={setIsOpenModal}/>
-        {isOpenModal&&(
-          <LayoutModal openModal={setIsOpenModal}>
-            <ModalGuideSizes image={product.sizeguide} setIsOpenModal={setIsOpenModal} />
-          </LayoutModal>
-        )}
+      <div className="ProductLeft">
+        <p className="ProductRoute">Movies / Hombre / Chaquetas y Buzos /<span> Chaqueta género neutro, caqui con cierre de Mandalorian</span></p>
+        <ProductGallery images={product.images} />
+      </div>
+      <ProductDetails product={product} setIsOpenModal={setIsOpenModal} />
+      {isOpenModal && (
+        <LayoutModal openModal={setIsOpenModal}>
+          <ModalGuideSizes image={product.sizeguide} setIsOpenModal={setIsOpenModal} />
+        </LayoutModal>
+      )}
     </section>
   )
 }
