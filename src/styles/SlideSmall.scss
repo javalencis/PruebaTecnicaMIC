@@ -1,103 +1,127 @@
 @import './media-queries';
 
-.SlideSmall{
+.SlideSmall {
     width: 100%;
     max-height: 500px;
     overflow: hidden;
     position: relative;
-    .SlideSmallContainer{
-        display: flex;
-        flex-direction: column;
-        transition: all 0.3s ease;
-        img{
-           
-            padding:0 5px;
-            margin-bottom: 10px;
-            object-fit: contain;
-            cursor: pointer;
 
+    .ScrollContainer {
+        width: 100%;
+        max-height: 500px;
+
+
+
+        .SlideSmallContainer {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+
+            img {
+
+                padding: 0 5px;
+                margin-bottom: 10px;
+                object-fit: contain;
+                cursor: pointer;
+
+
+            }
         }
-    }   
+    }
 
-    
+
     button {
         width: 100%;
         text-align: center;
-        
+
         height: 50px;
         position: absolute;
-       
+
         cursor: pointer;
         background-color: transparent;
         color: #0f3e99;
         font-size: 34px;
         font-weight: 700;
-        
-       
+
+
         border: none;
         z-index: 1;
-        span{
+
+        span {
             transform: rotate(90deg);
             display: block;
-   
+
             pointer-events: none;
         }
     }
 
     button:first-child {
         top: 0px;
-        
+
 
     }
 
     button:last-child {
 
         bottom: 0px;
-      
+
     }
 }
 
-@include tablet{
-    .SlideSmall{
+@include tablet {
+    .SlideSmall {
         max-width: 100%;
-        .SlideSmallContainer{
-       
-            flex-direction: row;
-            
-            padding: 5px;
+
+        .ScrollContainer {
+            width: 100%;
             height: 100%;
-            img{
-               padding: 0;
-               margin-right: 5px;
-                width: calc(100% / 3);
-            
+            overflow: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .SlideSmallContainer {
+
+                flex-direction: row;
+
+                padding: 5px;
+                height: 100%;
+
+                img {
+                    padding: 0;
+                    margin-right: 5px;
+                    width: calc(100% / 4);
+
+                }
             }
         }
+
         button {
-          
+
             width: 30px;
             text-align: center;
-            
-            height:100%;
-            
-            span{
+
+            height: 100%;
+
+            span {
                 transform: rotate(0deg);
                 display: block;
                 pointer-events: none;
             }
         }
-    
+
         button:first-child {
             left: 0px;
-            
-    
+
+
         }
-    
+
         button:last-child {
-    
+
             right: 0px;
-          
+
         }
-    
+
     }
 }
