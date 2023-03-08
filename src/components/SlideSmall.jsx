@@ -1,14 +1,18 @@
 import { useRef, useState } from 'react'
 import '../styles/SlideSmall.scss'
-export const SlideSmall = ({ images }) => {
+export const SlideSmall = ({ images, setImgClicked }) => {
     const myImg = useRef(null)
     const [posY, setPosY] = useState(0)
     const [posX, setPosX] = useState(0)
     const [positions, setPositions] = useState(0)
 
+    const handleClickImg = (e) => {
+        setImgClicked(parseInt(e.target.id))
+    }
+
     const handleTopBottom = (e) => {
         let imgH = myImg.current.clientHeight + 10
-        const screenWidth = window.innerWidth
+      
         if (e.target.id === 'top') {
             
                 setPosX(-(positions - 2) * imgH) 
@@ -49,7 +53,7 @@ export const SlideSmall = ({ images }) => {
                 }}>
                 {
                     images.map((img, index) => (
-                        <img ref={myImg} key={index} src={img} />
+                        <img ref={myImg} key={index} id={index} src={img} onClick={handleClickImg}/>
                     ))
                 }
             </div>

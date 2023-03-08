@@ -1,6 +1,6 @@
-import { useRef,useState } from 'react'
+import { useEffect, useRef,useState } from 'react'
 import '../styles/SlideHorizontal.scss'
-export const SlideHorizontal = ({ images }) => {
+export const SlideHorizontal = ({ images ,imgClicked}) => {
 
     const myImg = useRef(null)
 
@@ -10,6 +10,13 @@ export const SlideHorizontal = ({ images }) => {
     const [timeT, setTimeT] = useState(0)
     const [posX, setPosX] = useState(0)
     const [imgCurrent, setImgCurrent] = useState(0)
+
+    useEffect(() => {
+        const imgWidth = myImg.current.clientWidth
+        setPosX(-(imgClicked)*imgWidth)
+        setImgCurrent(imgClicked)
+    }, [imgClicked])
+    
 
     const mouseMove = (e)=>{
         if(!isDragStart) return
