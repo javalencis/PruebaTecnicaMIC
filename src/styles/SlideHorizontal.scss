@@ -3,9 +3,9 @@
     max-width: 500px;
     max-height: 500px;
     overflow: hidden;
-
+    position: relative;
     .SlideContainer {
-        position: relative;
+   
        
         .ImageContainer {
             display: flex;
@@ -21,29 +21,29 @@
             }
         }
 
-        button {
-            top: 50%;
-            position: absolute;
-            width: 50px;
-            height: 100px;
-            cursor: pointer;
-            background-color: transparent;
-            color: #0f3e99;
-            font-size: 34px;
-            font-weight: 700;
-            transform: translateY(-50%);
-            border: none;
-            z-index: 2;
-        }
+    }
+    button {
+        top: 50%;
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        cursor: pointer;
+        background-color: transparent;
+        color: #0f3e99;
+        font-size: 34px;
+        font-weight: 700;
+        transform: translateY(-50%);
+        border: none;
+        z-index: 2;
+    }
 
-        button:first-child {
-            left: 0px;
+    button:first-child {
+        left: 0px;
 
-        }
+    }
 
-        button:last-child {
+    button:last-child {
 
-            right: 0px;
-        }
+        right: 0px;
     }
 }

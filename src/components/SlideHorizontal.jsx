@@ -87,6 +87,13 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
 
     return (
         <div className='SlideHorizontal'>
+              <button
+                    id='left'
+                    onClick={handleBackNextImg} 
+                    style={{
+                        display: imgCurrent > 0 ? "block" : "none"
+                    }}
+                    >{'<'}</button>
             <div 
                 className="SlideContainer"
          
@@ -97,13 +104,7 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
                 onTouchEnd={mouseUp}
                
                 >
-                <button
-                    id='left'
-                    onClick={handleBackNextImg} 
-                    style={{
-                        display: imgCurrent > 0 ? "block" : "none"
-                    }}
-                    >{'<'}</button>
+              
                 <div 
                     className="ImageContainer"
                     style={{
@@ -121,14 +122,15 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
                         ))
                     }
                 </div>
-                <button 
+               
+            </div>
+            <button 
                     id='right'
                     onClick={handleBackNextImg} 
                     style={{
                         display: imgCurrent === images.length-1 ? "none" : "block"
                     }}
                 >{'>'}</button>
-            </div>
         </div>
     )
 }
