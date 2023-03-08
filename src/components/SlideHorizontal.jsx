@@ -1,5 +1,6 @@
 import { useEffect, useRef,useState } from 'react'
 import '../styles/SlideHorizontal.scss'
+import { ListDots } from './ListDots'
 export const SlideHorizontal = ({ images ,imgClicked}) => {
 
     const myImg = useRef(null)
@@ -131,6 +132,8 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
                         display: imgCurrent === images.length-1 ? "none" : "block"
                     }}
                 >{'>'}</button>
+
+              
         </div>
     )
 }

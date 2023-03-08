@@ -1,6 +1,23 @@
+import '../styles/ListDots.scss'
+export const ListDots = ({ images,setImgClicked ,imgClicked}) => {
+   const handleClickDot = (e) =>{
 
-export const ListDots = ({amount,}) => {
-  return (
-    <div>ListDots</div>
-  )
+    setImgClicked(parseInt(e.target.id))
+   }
+
+    return (
+        <div className="ListDots">
+            {
+                images.map((img,index) => (
+                    <span 
+                        key={index} 
+                        id={index}
+                        onClick={handleClickDot}
+                        className={index==imgClicked?'active':''}
+                        >
+                    </span>
+                ))
+            }
+        </div>
+    )
 }
