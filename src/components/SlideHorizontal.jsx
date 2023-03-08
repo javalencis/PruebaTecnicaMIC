@@ -7,7 +7,7 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
     const [isDragStart, setIsDragStart] = useState(false)
     const [prevPosX, setPrevPosX] = useState(null)
     const [posClick, setPosClick] = useState(null)
-    const [timeT, setTimeT] = useState(0)
+    const [timeT, setTimeT] = useState(0.3)
     const [posX, setPosX] = useState(0)
     const [imgCurrent, setImgCurrent] = useState(0)
 
