@@ -1,7 +1,7 @@
 import { useEffect, useRef,useState } from 'react'
 import '../styles/SlideHorizontal.scss'
 import { ListDots } from './ListDots'
-export const SlideHorizontal = ({ images ,imgClicked}) => {
+export const SlideHorizontal = ({ images ,imgClicked,imgCurrent, setImgCurrent}) => {
 
     const myImg = useRef(null)
 
@@ -10,7 +10,7 @@ export const SlideHorizontal = ({ images ,imgClicked}) => {
     const [posClick, setPosClick] = useState(null)
     const [timeT, setTimeT] = useState(0.3)
     const [posX, setPosX] = useState(0)
-    const [imgCurrent, setImgCurrent] = useState(0)
+
 
     useEffect(() => {
         const imgWidth = myImg.current.clientWidth

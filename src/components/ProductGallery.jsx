@@ -5,9 +5,8 @@ import { useState } from "react"
 import { ListDots } from "./ListDots"
 export const ProductGallery = ({ images }) => {
     const [imgClicked, setImgClicked] = useState(0)
-    
+    const [imgCurrent, setImgCurrent] = useState(0)
 
-   
     return (
         <div className="ProductGallery">
             <SlideSmall 
@@ -17,10 +16,12 @@ export const ProductGallery = ({ images }) => {
             <SlideHorizontal 
                 images={images} 
                 imgClicked={imgClicked}
+                imgCurrent={imgCurrent}
+                setImgCurrent={setImgCurrent}
                 />
             <ListDots 
                 images={images}
-                imgClicked={imgClicked}
+                imgCurrent={imgCurrent}
                 setImgClicked={setImgClicked}
                 />    
 

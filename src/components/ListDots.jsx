@@ -1,5 +1,5 @@
 import '../styles/ListDots.scss'
-export const ListDots = ({ images,setImgClicked ,imgClicked}) => {
+export const ListDots = ({ images,setImgClicked ,imgCurrent}) => {
    const handleClickDot = (e) =>{
     setImgClicked(parseInt(e.target.id))
    }
@@ -12,7 +12,7 @@ export const ListDots = ({ images,setImgClicked ,imgClicked}) => {
                         key={index} 
                         id={index}
                         onClick={handleClickDot}
-                        className={index==imgClicked?'active':''}
+                        className={index==imgCurrent?'active':''}
                         >
                     </span>
                 ))
