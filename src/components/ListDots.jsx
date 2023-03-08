@@ -1,7 +1,6 @@
 import '../styles/ListDots.scss'
 export const ListDots = ({ images,setImgClicked ,imgClicked}) => {
    const handleClickDot = (e) =>{
-
     setImgClicked(parseInt(e.target.id))
    }
 

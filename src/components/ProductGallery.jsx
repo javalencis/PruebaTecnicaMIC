@@ -5,6 +5,8 @@ import { useState } from "react"
 import { ListDots } from "./ListDots"
 export const ProductGallery = ({ images }) => {
     const [imgClicked, setImgClicked] = useState(0)
+    
+
    
     return (
         <div className="ProductGallery">
